@@ -4,6 +4,7 @@
 #### Consider changing the class namespace if you are going to use a directory other than \App\Services
 
 # Authentication
+##### Request
 ``
     $service = new \App\Services\N1co\Auth();
     ``
@@ -30,6 +31,7 @@
 ``
 
 # Payment Cards
+##### Request
 ``<?
 ``
 
@@ -38,6 +40,7 @@
 ``
 
 # Charges
+##### Request
 ``<?
 ``
 
@@ -45,6 +48,7 @@
 ``<?
 ``
 # Locations
+##### Request
 ``<?
 ``
 
