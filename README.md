@@ -69,12 +69,29 @@ $response = $service->createPaymentMethod([
 
 # Charges
 ##### Request
-``<?
-``
+```
+$service = new \App\Services\N1co\Charge($token);
+$response = $service->createCharge([
+    "customer" => [
+        "id"=> "rjgl",
+        "name"=> "rjgl",
+        "email"=> "rjgl@1co.com",
+        "phoneNumber"=> "+5039632333"
+    ],
+    "order" => [
+        "id" => "vmax0001",
+        "amount" => 1.5,
+        "description" => "Descrição do pedido",
+        "name" => "auto",
+    ],
+    "cardId" => "682c548ba0138d1723cda7d6",
+]);
+```
 
 ##### Response
-``<?
-``
+```
+Error 400
+```
 # Locations
 ##### Request
 ``<?
