@@ -21,31 +21,20 @@ $token = $service->getAccessToken(
     "status" => 200
       "data" => [
         "tokenType" => "Bearer"
-        "accessToken" => "n023qanifa2980npifa2nipofan2890npoafn92qnq90nfopanf20piq1nopfa"
+        "accessToken" => "n023qanifa2980npifa2nipofan28903gsdg34afn92qnq90nfopanf20piq1nopfa"
         "expiresIn" => 3598
     ]
 ]
 ```
 
-# Payment Methods
+# Payment Link
 ##### Request
 ```
-$service = new \App\Services\N1co\PaymentMethod($token);
-$response = $service->createPaymentMethod([
-    "customer" => [
-        "id"=> "rjgl",
-        "name"=> "rjgl",
-        "email"=> "rjgl@1co.com",
-        "phoneNumber"=> "+5039632333"
-      ],
-    "card" => [
-        "number"=> "4000000000011000",
-        "expirationMonth"=> "12",
-        "expirationYear"=> "2029",
-        "cvv"=> "123",
-        "cardHolder"=> "rjgl",
-        "singleUse"=> false
-      ]
+$service = new \App\Services\N1co\PaymentLink($token, $paymentToken);
+$response = $service->createPaymentLink([
+    "orderName" => "Nome da cobrança",
+    "orderDescription" => "Descrição da cobrança",
+    "amount" => 0.2,
 ]);
 ```
 
@@ -54,49 +43,34 @@ $response = $service->createPaymentMethod([
 [
   "status" => 200
   "data" => [
-    "id" => "62cf1f321gseg1af23"
-    "type" => "card"
-    "bin" => [
-      "brand" => "visa"
-      "issuerName" => "INTL HDQTRS-CENTER OWNED"
-      "countryCode" => "USA"
-    ]
-    "success" => true
-    "message" => "El método de pago se creó exitosamente"
+    "orderCode" => "zA2NY41uY4"
+    "orderId" => 3955763
+    "paymentLinkUrl" => "https://pay.n1co.shop/zA2N124Y4"
   ]
 ]
 ```
 
-# Charges
+# Refound
 ##### Request
 ```
-$service = new \App\Services\N1co\Charge($token);
-$response = $service->createCharge([
-    "customer" => [
-        "id"=> "rjgl",
-        "name"=> "rjgl",
-        "email"=> "rjgl@1co.com",
-        "phoneNumber"=> "+5039632333"
-    ],
-    "order" => [
-        "id" => "vmax0001",
-        "amount" => 1.5,
-        "description" => "Descrição do pedido",
-        "name" => "auto",
-    ],
-    "cardId" => "682c548ba0138d1723cda7d6",
+$service = new \App\Services\N1co\PaymentLink($token, $paymentToken);
+$response = $service->refound([
+    "orderId" => "3955735",
+    "cancellationReason" => "Motivo do reembolso",
 ]);
 ```
 
 ##### Response
 ```
-Error 400
+ [
+  "status" => 200
+  "data" => [
+    "success" => true
+    "message" => "Su orden ha sido cancelada y su pago reintegrado"
+    "orderId" => "3955763"
+    "status" => "SUCCEEDED"
+    "amount" => 0.2
+    "currency" => "USD"
+  ]
+]
 ```
-# Locations
-##### Request
-``<?
-``
-
-##### Response
-``<?
-``
