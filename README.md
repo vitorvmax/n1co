@@ -74,3 +74,70 @@ $response = $service->refound([
   ]
 ]
 ```
+
+# Webhook
+
+
+## Link de pagamento criado
+```
+{
+    "orderId":"39411788"
+    "orderReference":NULL
+    "description":"La orden fue creada"
+    "metadata":NULL
+    "level":"Info"
+    "type":"Created"
+}
+```
+
+## Pagamento efetuado
+```
+{
+    "orderId":string"3955763"
+    "orderReference":NULL
+    "description":"La orden fue pagada exitosamente autorización: IKXPCM"
+    "metadata":{
+        "PaymentId":"1f4ef1e-45ed-8fe7-c0b55ca25d4c"
+        "ChargeId":"144-4e21-ac47-a96add5bdf83"
+        "Status":"SUCCEEDED"
+        "AuthorizationCode":"IKDEPCM"
+        "SequentialNumber":"214512512521"
+        "AccountId":string"hugoapp.h4b"
+        "PaymentProcessor":"serfinsa"
+        "PaymentProcessorReference":"516012868998"
+        "TransactionDate":"2025-06-09T12:14:12.8910641Z"
+        "PaidAmount":".20"
+        "BuyerName":"Vitor "
+        "BuyerPhone":"+5519981346098"
+        "BuyerEmail":"email@gmail.com"
+        "CheckoutNote":"N/A"
+        "OrderReference":""
+        "OrderTotalDetails":{
+        "subtotal":string"0.2000"
+        "shippingAmount":"0.0000"
+        "discountAmount":"0"
+        "surchargeAmount":"0"
+        "total":"0.20"
+    }
+    "IsManagedPaymentMethod":false
+    "InvoiceName":""
+    "InvoiceAddress":""
+    "InvoiceTaxCode":"C/F"
+    }
+    "level":"Info"
+    "type":"SuccessPayment"
+}
+```
+
+## Pagamento reembolsado
+```
+{
+"orderId": "3955763"
+"orderReference":
+"description":string"La orden fue cancelada, motivo: Teste de reembolso"
+"metadata":NULL
+"level":string"Info"
+"type":string"Cancelled"
+}
+
+```
