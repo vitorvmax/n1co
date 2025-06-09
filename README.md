@@ -1,6 +1,6 @@
 ## PHP classes to work with N1co
 
-#### Guzzle is required
+#### Guzzle and Carbon is required
 #### Consider changing the class namespace if you are going to use a directory other than \App\Services
 
 # Authentication
@@ -35,6 +35,7 @@ $response = $service->createPaymentLink([
     "orderName" => "Nome da cobrança",
     "orderDescription" => "Descrição da cobrança",
     "amount" => 0.2,
+    "expirationDateTime" => Carbon::now()->addMinutes(5)->toIso8601ZuluString(),
 ]);
 ```
 
