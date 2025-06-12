@@ -6,12 +6,8 @@
 # Authentication
 ##### Request
 ```
-$service = new \App\Services\N1co\Auth();
+$service = new \App\Services\N1co\PaymentMethod($clientId, $clientSecret, $paymentToken);
 $token = $service->getAccessToken(
-    [
-        'clientId' => 'VALUE',
-        'clientSecret' => 'VALUE',
-    ]
 );
 ```
 
@@ -30,7 +26,7 @@ $token = $service->getAccessToken(
 # Payment Link
 ##### Request
 ```
-$service = new \App\Services\N1co\PaymentLink($token, $paymentToken);
+$service = new \App\Services\N1co\PaymentLink($clientId, $clientSecret, $paymentToken, $accessToken);
 $response = $service->createPaymentLink([
     "orderName" => "Nome da cobrança",
     "orderDescription" => "Descrição da cobrança",
@@ -54,7 +50,7 @@ $response = $service->createPaymentLink([
 # Refound
 ##### Request
 ```
-$service = new \App\Services\N1co\PaymentLink($token, $paymentToken);
+$service = new \App\Services\N1co\PaymentLink($clientId, $clientSecret, $paymentToken, $accessToken);
 $response = $service->refound([
     "orderId" => "3955735",
     "cancellationReason" => "Motivo do reembolso",
