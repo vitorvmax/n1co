@@ -90,7 +90,7 @@ $response = $service->refound([
 ## Pagamento efetuado
 ```
 {
-    "orderId":string"3955763"
+    "orderId":"3955763"
     "orderReference":NULL
     "description":"La orden fue pagada exitosamente autorización: IKXPCM"
     "metadata":{
@@ -99,7 +99,7 @@ $response = $service->refound([
         "Status":"SUCCEEDED"
         "AuthorizationCode":"IKDEPCM"
         "SequentialNumber":"214512512521"
-        "AccountId":string"hugoapp.h4b"
+        "AccountId":"hugoapp.h4b"
         "PaymentProcessor":"serfinsa"
         "PaymentProcessorReference":"516012868998"
         "TransactionDate":"2025-06-09T12:14:12.8910641Z"
@@ -133,8 +133,8 @@ $response = $service->refound([
 "orderReference":
 "description":string"La orden fue cancelada, motivo: Teste de reembolso"
 "metadata":NULL
-"level":string"Info"
-"type":string"Cancelled"
+"level":"Info"
+"type":"Cancelled"
 }
 
 ```

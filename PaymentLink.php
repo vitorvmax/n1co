@@ -8,17 +8,17 @@ use GuzzleHttp\Exception\GuzzleException;
 class PaymentLink
 {
 
-    private string $clientId;
-    private string $clientSecret;
-    private ?string $accessToken;
+    private ?string $clientId;
+    private ?string $clientSecret;
     private string $paymentToken;
+    private string|null $accessToken;
 
-    public function __construct(string $clientId, string $clientSecret, string $paymentToken, string $accessToken = null)
+    public function __construct(string $clientId, string $clientSecret, string $paymentToken = null, string $accessToken = null)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
-        $this->accessToken = $accessToken;
         $this->paymentToken = $paymentToken;
+        $this->accessToken = $accessToken;
     }
 
     public function getAccessToken()
@@ -30,7 +30,6 @@ class PaymentLink
                 'clientSecret' => $this->clientSecret,
             ],
             'headers' => [
-                'Authorization' => 'Bearer ' . $this->paymentToken,
                 'Content-Type' => 'application/json',
             ],
         ]);
