@@ -31,7 +31,6 @@ $response = $service->createPaymentLink([
     "orderName" => "Nome da cobrança",
     "orderDescription" => "Descrição da cobrança",
     "amount" => 0.2,
-    "expirationDateTime" => Carbon::now()->addMinutes(5)->toIso8601ZuluString(),
 ]);
 ```
 
