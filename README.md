@@ -6,7 +6,7 @@
 # Authentication
 ##### Request
 ```
-$service = new \App\Services\N1co\PaymentMethod($clientId, $clientSecret, $paymentToken);
+$service = new \App\Services\N1co\PaymentLink($clientId, $clientSecret, $paymentToken);
 $token = $service->getAccessToken(
 );
 ```
